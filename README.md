@@ -41,6 +41,9 @@ flutter run -d android
 
 # 4. Run on iOS
 flutter run -d ios
+
+#5. Run on Web Server
+flutter run -d web-server
 ```
 
 **Simulate Mode** is enabled by default — no NFC hardware needed for development.

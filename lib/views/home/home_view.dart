@@ -6,10 +6,16 @@
 //   - Profile/Settings tab
 //   - Connections tab (future)
 //
+// Wrapped in PlatformShell so:
+//   - Web: Shows phone mockup frame with Steel branding outside
+//   - Mobile: Full-screen native layout
+//
 // Uses a minimal bottom nav with Steel's dark aesthetic.
 
 import 'package:flutter/material.dart';
 import '../../theme/steel_theme.dart';
+import '../components/platform_shell.dart';
+import '../components/steel_logo.dart';
 import '../nfc/nfc_tap_view.dart';
 import '../profile/profile_settings_view.dart';
 
@@ -30,36 +36,50 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: SteelColors.background,
-      body: _pages[_currentIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          // Glass-like bottom bar
-          color: SteelColors.surface,
-          border: Border(
-            top: BorderSide(color: SteelColors.glassBorder),
-          ),
+    return PlatformShell(
+      showLogo: true,
+      child: Scaffold(
+        backgroundColor: SteelColors.background,
+        body: Stack(
+          children: [
+            // Page content
+            _pages[_currentIndex],
+
+            // Steel logo — top left (inside the phone frame on web)
+            const Positioned(
+              top: 50,
+              left: 16,
+              child: SteelLogo(width: 80, opacity: 0.7),
+            ),
+          ],
         ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _NavItem(
-                  icon: Icons.nfc,
-                  label: 'Connect',
-                  isActive: _currentIndex == 0,
-                  onTap: () => setState(() => _currentIndex = 0),
-                ),
-                _NavItem(
-                  icon: Icons.person_outline,
-                  label: 'Profile',
-                  isActive: _currentIndex == 1,
-                  onTap: () => setState(() => _currentIndex = 1),
-                ),
-              ],
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            color: SteelColors.surface,
+            border: Border(
+              top: BorderSide(color: SteelColors.glassBorder),
+            ),
+          ),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _NavItem(
+                    icon: Icons.nfc,
+                    label: 'Connect',
+                    isActive: _currentIndex == 0,
+                    onTap: () => setState(() => _currentIndex = 0),
+                  ),
+                  _NavItem(
+                    icon: Icons.person_outline,
+                    label: 'Profile',
+                    isActive: _currentIndex == 1,
+                    onTap: () => setState(() => _currentIndex = 1),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

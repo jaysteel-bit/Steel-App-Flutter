@@ -1,0 +1,17 @@
+{
+  "name": "steel-backend",
+  "version": "1.0.0",
+  "description": "Steel by Exo — Convex Backend",
+  "private": true,
+  "scripts": {
+    "dev": "npx convex dev",
+    "deploy": "npx convex deploy",
+    "push": "npx convex deploy --push"
+  },
+  "dependencies": {
+    "convex": "^1.17.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

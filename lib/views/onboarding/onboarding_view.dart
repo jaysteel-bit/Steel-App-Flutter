@@ -12,7 +12,9 @@ import '../../theme/steel_theme.dart';
 import '../../providers/providers.dart';
 import '../components/ambient_glow.dart';
 import '../components/particle_background.dart';
+import '../components/platform_shell.dart';
 import '../components/steel_button.dart';
+import '../components/steel_logo.dart';
 import '../home/home_view.dart';
 
 class OnboardingView extends ConsumerStatefulWidget {
@@ -61,28 +63,37 @@ class _OnboardingViewState extends ConsumerState<OnboardingView>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: SteelColors.background,
-      body: Stack(
-        children: [
-          // Background effects
-          const AmbientGlow(),
-          const ParticleBackground(),
+    return PlatformShell(
+      showLogo: false, // We show the logo manually inside the content
+      child: Scaffold(
+        backgroundColor: SteelColors.background,
+        body: Stack(
+          children: [
+            // Background effects
+            const AmbientGlow(),
+            const ParticleBackground(),
 
-          // Main content
-          SafeArea(
-            child: FadeTransition(
-              opacity: _fadeAnimation,
-              child: SlideTransition(
-                position: _slideAnimation,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: SteelSpacing.lg),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Spacer(flex: 2),
+            // Steel logo — top left
+            const Positioned(
+              top: 50,
+              left: 20,
+              child: SteelLogo(width: 90, opacity: 0.8),
+            ),
 
-                      // "Steel by Exo" badge — matches the HTML header badge
+            // Main content
+            SafeArea(
+              child: FadeTransition(
+                opacity: _fadeAnimation,
+                child: SlideTransition(
+                  position: _slideAnimation,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: SteelSpacing.lg),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Spacer(flex: 2),
+
+                        // "Steel by Exo" badge — matches the HTML header badge
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
@@ -174,14 +185,15 @@ class _OnboardingViewState extends ConsumerState<OnboardingView>
                         ),
                       ),
 
-                      const SizedBox(height: SteelSpacing.xxl),
-                    ],
+                        const SizedBox(height: SteelSpacing.xxl),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
