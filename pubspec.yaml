@@ -1,0 +1,56 @@
+name: steel_flutter
+description: "Steel by Exo — Privacy-first NFC tap-to-share social ecosystem. iOS + Android + Web PWA."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management — Riverpod for reactive, scalable state
+  flutter_riverpod: ^2.6.1
+
+  # NFC — Read/write NDEF tags (Android + iOS, not web)
+  nfc_manager: ^3.5.0
+
+  # Fonts — Google Fonts (Inter + Playfair Display, matching steel.html)
+  google_fonts: ^6.2.1
+
+  # Animations — Lottie for complex animations, shimmer for metallic text
+  shimmer: ^3.0.0
+
+  # Haptics — Built-in Flutter HapticFeedback (no extra package needed)
+
+  # URL launcher — Open social links, web profile URLs
+  url_launcher: ^6.3.1
+
+  # Device info — Detect platform capabilities (NFC availability)
+  device_info_plus: ^11.2.0
+
+  # Shared preferences — Local storage for privacy settings, onboarding state
+  shared_preferences: ^2.3.4
+
+  # HTTP — API calls to backend (profile fetch, share logging)
+  http: ^1.2.2
+
+  # UUID generation — For share tracking IDs
+  uuid: ^4.5.1
+
+  # Sensors — Tilt/gyroscope effect for the phone demo card
+  sensors_plus: ^6.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
