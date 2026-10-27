@@ -43,6 +43,11 @@ dependencies:
 
   # Sensors — Tilt/gyroscope effect for the phone demo card
   sensors_plus: ^6.1.1
+  cryptography: ^2.9.0
+  cryptography_flutter: ^2.3.4
+  flutter_secure_storage: ^10.3.4
+  share_plus: ^12.0.2
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -54,3 +59,13 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/icons/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter.ttf
+    - family: Playfair Display
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay.ttf
+        - asset: assets/fonts/PlayfairDisplay-Italic.ttf
+          style: italic

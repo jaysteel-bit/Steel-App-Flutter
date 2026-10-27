@@ -1,0 +1,5 @@
+const {chromium}=require('C:/Users/viole/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});const p=await b.newPage({viewport:{width:1000,height:1100}});p.on('console',m=>console.log(m.type(),m.text()));await p.goto('http://127.0.0.1:8790/');await p.waitForSelector('flt-semantics-placeholder',{timeout:60000});await p.locator('flt-semantics-placeholder').evaluateAll(es=>es.forEach(e=>e.click()));await p.getByRole('button',{name:'Identity & permissions',exact:true}).click();await p.getByRole('button',{name:'Close',exact:true}).waitFor();console.log(await p.getByRole('textbox').evaluate(e=>e.outerHTML));for(let i=0;i<1;i++){await p.waitForTimeout(1000);console.log(i,(await p.locator('body').innerText()).slice(-2000));}await p.screenshot({path:'DOCUMENTATION/verification/security-debug.png'});await b.close()})().catch(e=>{console.error(e);process.exit(1)});
+
+
+

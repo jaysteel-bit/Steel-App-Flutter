@@ -1,5 +1,11 @@
 # Steel by Exo — Flutter
 
+**Current entry point (2026-10-26):** digital profile with local editing,
+public preview, vCard export, and a cryptographic signing/delegation demo.
+See [implementation, trust boundaries and run instructions](DOCUMENTATION/DIGITAL-IDENTITY.md).
+The NFC-first flows below describe the retained legacy prototype; phone-to-phone
+NFC and production member issuance have not been proven or activated.
+
 **Privacy-first NFC tap-to-share social ecosystem.**
 iOS + Android + Web PWA.
 

@@ -1,0 +1,60 @@
+{
+  "warning": "TEST KEYS ONLY. No enrollment or live authority.",
+  "now": 1800000000,
+  "audience": "steel:interop-test",
+  "rootPublicKey": "A6EHv_POEL4dcN0Y50vAmWfk1jCbpQ1fHdyGZBJVMbg=",
+  "proof": {
+    "payload": {
+      "audience": "steel:interop-test",
+      "expiresAt": 1800000300,
+      "issuedAt": 1800000000,
+      "issuer": "steel:test-identity",
+      "keyId": "key:test-root",
+      "profile": {
+        "headline": "Creative Director | NYC",
+        "name": "Alexis Rivera"
+      },
+      "purpose": "public-profile",
+      "resource": "personal:steel:test-identity/public-profile",
+      "version": 1
+    },
+    "signature": "wAsVX9G51TdYWFPyfek73M7cyX1FgbBB4QJMxoMnW5Di_yOi2IwdOZPtQH1JtY0CYsEBwigYG2jOdf0xT_bqDQ=="
+  },
+  "grant": {
+    "payload": {
+      "actions": [
+        "profile.public.read"
+      ],
+      "audience": "steel:interop-test",
+      "delegateKey": "uvxxvq06xeS2PpyCFu5xo0quxlci7tvKcotOmzzM45Y=",
+      "delegateKeyId": "key:test-agent",
+      "expiresAt": 1800000300,
+      "grantId": "grant:test",
+      "issuedAt": 1800000000,
+      "issuer": "steel:test-identity",
+      "keyId": "key:test-root",
+      "purpose": "automation-grant",
+      "resource": "personal:steel:test-identity/public-profile",
+      "revocationRef": "local:steel",
+      "version": 1
+    },
+    "signature": "ScAVaXO7eJ8J5CqjSQ7dg7G7Ij4nJW_VsWiK4aL_ZfDqzvoE2-gAbXqXU-Qq84B7PQnlsIgRpn1yop94msqjAw=="
+  },
+  "request": {
+    "payload": {
+      "action": "profile.public.read",
+      "audience": "steel:interop-test",
+      "expiresAt": 1800000060,
+      "grantId": "grant:test",
+      "issuedAt": 1800000000,
+      "issuer": "steel:test-identity",
+      "keyId": "key:test-agent",
+      "nonce": "test-challenge",
+      "purpose": "action-request",
+      "resource": "personal:steel:test-identity/public-profile",
+      "version": 1
+    },
+    "signature": "QQEZScdQgDFoetb99t8hZK8aE46Xj4cxELkxO8t1mCxt-ID9iWi4d127zTw3qCCmxSQ6tx3guE-YmzXHLKW-Dg=="
+  },
+  "proofCanonicalSigningText": "steel-envelope-v1\n{\"audience\":\"steel:interop-test\",\"expiresAt\":1800000300,\"issuedAt\":1800000000,\"issuer\":\"steel:test-identity\",\"keyId\":\"key:test-root\",\"profile\":{\"headline\":\"Creative Director | NYC\",\"name\":\"Alexis Rivera\"},\"purpose\":\"public-profile\",\"resource\":\"personal:steel:test-identity/public-profile\",\"version\":1}"
+}
